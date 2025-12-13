@@ -1,5 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: antiquewhite;
+    background: linear-gradient(to bottom, #f4e8d0, #e8d7b8);
+    font-family: 'Georgia', 'Garamond', serif;
+    color: #3d3121;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 div {
@@ -9,7 +19,102 @@ div {
 }
 
 h1 {
-    color: goldenrod;
+    color: #b8860b;
     text-align: center;
-    
+    font-size: 2.5em;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h2 {
+    color: #5a4a3a;
+    font-size: 1.5em;
+    font-style: italic;
+    margin: 30px 20px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.3);
+    border-left: 4px solid #b8860b;
+    border-radius: 4px;
+    max-width: 800px;
+    line-height: 1.6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: #8b7355;
+    font-size: 1.2em;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+h4 {
+    color: #a0826d;
+    font-size: 1em;
+    margin: 5px 0;
+    font-style: italic;
+}
+
+h5 {
+    color: #6b5d52;
+    font-size: 0.9em;
+    margin: 15px 0;
+    font-weight: 400;
+}
+
+button {
+    background: linear-gradient(to bottom, #d4af37, #b8860b);
+    color: #2d2416;
+    border: 2px solid #8b7355;
+    padding: 10px 20px;
+    font-family: 'Georgia', serif;
+    font-size: 0.95em;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #e5c158, #d4af37);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+img {
+    margin: 20px 0;
+    filter: sepia(0.2);
+    border-radius: 8px;
+}
+
+.error {
+    color: #8b0000;
+    background: rgba(220, 20, 60, 0.1);
+    padding: 10px 15px;
+    border-radius: 4px;
+    border-left: 3px solid crimson;
+}
+
+.good {
+    color: #2d5016;
+    background: rgba(34, 139, 34, 0.1);
+    padding: 10px 15px;
+    border-radius: 4px;
+    border-left: 3px solid green;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: small;
+    color: #8b7355;
+    font-style: italic;
+    opacity: 0.7;
 }

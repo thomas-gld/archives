@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="/register" method="get">
-        <button style="position: absolute; top: 60px; right: 20px;">Creer un compte</button>
+        <button style="position: absolute; top: 70px; right: 20px;">Creer un compte</button>
     </form>
     <form action="/login" method="get">
         <button style="position: absolute; top: 20px; right: 20px;">Se connecter</button>
@@ -23,11 +23,30 @@
             Les Archives Impériales
         </h1>
     </div>
-
     <div>
         <h2>
-            Par Pipotin le brave, archiviste impérial
+            <%=quoteText%>
         </h2>
+    </div>
+    <div>
+        <h3>
+            <%=author%>
+        </h3>
+    </div>
+    <div>
+        <h4>
+            <%=book%>
+        </h4>
+    </div>
+    <div>
+        <h5>
+            Posted by : <%=postedBy%>
+        </h5>
+    </div>
+    <div>
+        <footer>
+            Par Pipotin le Brave, archiviste impérial
+        </footer>
     </div>
 </body>
 </html>

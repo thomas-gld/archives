@@ -18,3 +18,12 @@ model User {
   name       String  @unique
   password   String
 }
+
+
+model Quote {
+  id              Int         @default(autoincrement())    @id
+  quote_text      String
+  author          String
+  book            String      ?
+  posted_by       String
+}

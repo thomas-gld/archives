@@ -7,6 +7,9 @@
     <title>Les archives impériales</title>
 </head>
 <body>
+    <form action="/register" method="get">
+        <button style="position: absolute; top: 60px; right: 20px;">Creer un compte</button>
+    </form>
     <form action="/login" method="get">
         <button style="position: absolute; top: 20px; right: 20px;">Se connecter</button>
     </form>
@@ -22,52 +25,51 @@
     </div>
     <div>
         <h2>
-            Creer un compte
+            Bonjour <%=user_name%>
         </h2>
     </div>
     <div>
-        <form action="/register_verify" method="post">
+        <h3>
+            Poster dans les archives
+        </h3>
+    </div>
+    <div>
+        <form action="/verify_post" method="post">
             <div>
                 <p>
-                    Nom
+                    Citation
                 </p>
             </div>
             <div>
-                <input name="name" type="text">
+                <input name="quote" type="text">
             </div>
             <div>
                 <p>
-                    Mot de passe
+                    Auteur
                 </p>
             </div>
             <div>
-                <input name="password" type="password">
+                <input name="author" type="text">
             </div>
             <div>
                 <p>
-                    Mot de passe (confirmer)
+                    Ouvrage (facultatif)
                 </p>
             </div>
             <div>
-                <input name="password_confirm" type="password">
+                <input name="book" type="text">
             </div>
             <div>
                 <button>
-                    Creer un compte
+                    Poster
                 </button>
             </div>
             <div>
-                <p class="error">
-                    <%=error_message%>
-                </p>
-            </div>
-        </form>
-    </div>
-    <div>
                 <footer>
                     Par Pipotin le Brave, archiviste impérial
                 </footer>
             </div>
-    
+        </form>
+    </div>
 </body>
 </html>
