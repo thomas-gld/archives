@@ -28,6 +28,21 @@
             <%=quoteText%>
         </h2>
     </div>
+    <div class="vote-buttons">
+        <form action="/quote_up" method="post">
+            <button class="up">UP</button>
+            <input name="id" style="visibility: hidden; width: 0px;" type="text" value="<%=id%>">
+        </form>
+        <form action="/quote_down" method="post">
+            <button class="down">DOWN</button>
+            <input name="id" style="visibility: hidden; width: 0px;" type="text" value="<%=id%>">
+        </form>
+    </div>
+    <div>
+        <p>
+            <%=score%>
+        </p>
+    </div>
     <div>
         <h3>
             <%=author%>

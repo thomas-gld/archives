@@ -25,49 +25,31 @@
             Creer un compte
         </h2>
     </div>
-    <div>
-        <form action="/register_verify" method="post">
-            <div>
-                <p>
-                    Nom
-                </p>
+    <div class="form-container">
+        <form action="/register_verify" method="post" class="auth-form">
+            <div class="form-group">
+                <label for="name">Nom</label>
+                <input name="name" type="text" id="name" placeholder="Choisissez un nom d'utilisateur" required>
             </div>
-            <div>
-                <input name="name" type="text">
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input name="password" type="password" id="password" placeholder="Choisissez un mot de passe" required>
             </div>
-            <div>
-                <p>
-                    Mot de passe
-                </p>
+            <div class="form-group">
+                <label for="password_confirm">Mot de passe (confirmer)</label>
+                <input name="password_confirm" type="password" id="password_confirm" placeholder="Confirmez votre mot de passe" required>
             </div>
-            <div>
-                <input name="password" type="password">
-            </div>
-            <div>
-                <p>
-                    Mot de passe (confirmer)
-                </p>
-            </div>
-            <div>
-                <input name="password_confirm" type="password">
-            </div>
-            <div>
-                <button>
-                    Creer un compte
+            <div class="form-group">
+                <button type="submit">
+                    Créer un compte
                 </button>
             </div>
-            <div>
+            <div class="form-messages">
                 <p class="error">
                     <%=error_message%>
                 </p>
             </div>
         </form>
     </div>
-    <div>
-                <footer>
-                    Par Pipotin le Brave, archiviste impérial
-                </footer>
-            </div>
-    
 </body>
 </html>

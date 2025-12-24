@@ -25,30 +25,22 @@
             Connexion
         </h2>
     </div>
-    <div>
-        <form action="/login_verify" method="post">
-            <div>
-                <p>
-                    Nom
-                </p>
+    <div class="form-container">
+        <form action="/login_verify" method="post" class="auth-form">
+            <div class="form-group">
+                <label for="name">Nom</label>
+                <input name="name" type="text" id="name" placeholder="Entrez votre nom" required>
             </div>
-            <div>
-                <input name="name" type="text">
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input name="password" type="password" id="password" placeholder="Entrez votre mot de passe" required>
             </div>
-            <div>
-                <p>
-                    Mot de passe
-                </p>
-            </div>
-            <div>
-                <input name="password" type="password">
-            </div>
-            <div>
-                <button>
+            <div class="form-group">
+                <button type="submit">
                     Se connecter
                 </button>
             </div>
-            <div>
+            <div class="form-messages">
                 <p class="error">
                     <%=error_message%>
                 </p>
@@ -58,10 +50,5 @@
             </div>
         </form>
     </div>
-    <div>
-                <footer>
-                    Par Pipotin le Brave, archiviste impérial
-                </footer>
-            </div>
 </body>
 </html>

@@ -26,4 +26,5 @@ model Quote {
   author          String
   book            String      ?
   posted_by       String
+  score           Int
 }

@@ -24,15 +24,23 @@ app.use('/asset', express.static('asset'))
 
 // ------------------------------------------
 
-app.get('/', (req, res) => {
-    const quote = randomObjectFromTab(db_quotes)
-    console.log("quote", quote)
-    
-    const book = quote.book
-    const quoteText = quote.quote_text
-    const author = quote.author
-    const postedBy = quote.posted_by
-    res.render('home', {quoteText, author, postedBy, book})
+app.get('/', async (req, res) => {
+    const quotes = await prisma.Quote.findMany()
+    const quote = randomObjectFromTab(quotes)
+
+    if (!quote) {
+        res.render('home', {quoteText: "", author: "", postedBy: "", book: "", score: 0, id: 0})
+        return
+    }
+
+    const book = quote.book || ""
+    const quoteText = quote.quote_text || ""
+    const author = quote.author || ""
+    const postedBy = quote.posted_by || ""
+    const score = quote.score || 0
+    const id = quote.id
+
+    res.render('home', {quoteText, author, postedBy, book, score, id})
 })
 
 app.get('/login', (req, res) => {
@@ -107,8 +115,6 @@ app.post('/register_verify', async(req, res) => {
 app.post('/verify_post', async(req, res) => {
     const token = req.cookies['user_session']
     const payload = jwt.verify(token, process.env.JWT_SECRET)
-    console.log("Cookies:", req.cookies)
-    console.log("Payload décodé:", payload)
     const quote = req.body.quote
     const author = req.body.author
     const book = req.body.book
@@ -120,16 +126,62 @@ app.post('/verify_post', async(req, res) => {
                 quote_text: quote,
                 author: author,
                 book: book,
-                posted_by: posted_by
+                posted_by: posted_by,
+                score : 0
             }
         })
-        
+
         res.redirect('/user_page')
     }
     catch(err) {
         console.log("Erreur dans verify_post:", err)
         res.render('login', {error_message: "ERREUR", message: ""})
     }
+})
+
+
+app.post('/quote_up', async(req, res) => {
+    const id = Number(req.body.id)
+    const quote = await prisma.Quote.findUnique({
+        where : {
+            id
+        }
+    })
+    let score = quote.score
+    score ++
+
+    await prisma.Quote.update({
+        where : {
+            id 
+        },
+        data: { 
+            score 
+        },
+})
+    
+    res.redirect('/')
+})
+
+app.post('/quote_down', async(req, res) => {
+    const id = Number(req.body.id)
+    const quote = await prisma.Quote.findUnique({
+        where : {
+            id
+        }
+    })
+    let score = quote.score
+    score --
+
+    await prisma.Quote.update({
+        where : {
+            id 
+        },
+        data: { 
+            score 
+        },
+})
+    
+    res.redirect('/')
 })
 
 
